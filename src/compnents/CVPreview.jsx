@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function CVPreview({generalInfo, education, experience}) {
+export default function CVPreview({generalInfo, educationList ,experienceList }) {
 return(
    <section>
     <article>
@@ -13,12 +13,14 @@ return(
 
     <section>
         <h3>Education</h3>
-        {education && education.schoolName ? (
-            <article>
-                <h4>{education.schoolName}</h4>
-                <p>{education.titleOfStudy}</p>
-                <p>{education.startDate} - {education.endDate}</p>
+        {educationList && educationList.length > 0 ? (
+            educationList.map((edu, index) => (
+            <article key={index}>
+                <h4>{edu.schoolName}</h4>
+                <p>{edu.titleOfStudy}</p>
+                <p>{edu.startDate} - {edu.endDate}</p>
             </article>
+            ))
         ) : (
             <p>No Education Details Provided.</p>
         )}
@@ -26,17 +28,19 @@ return(
 
     <section>
         <h3>Experience</h3>
-        {experience && experience.companyName ? (
-            <article>
-                <h4>{experience.positionTitle} at {experience.companyName}</h4>
-                <p>{experience.responsibilities}</p>
-                <p>{experience.startDate} - {experience.endDate}</p>
+        {experienceList && experienceList.length > 0 ? (
+          experienceList.map((exp, index) => (
+            <article key={index}>
+              <h4>{exp.positionTitle} at {exp.companyName}</h4>
+              <p>{exp.responsibilities}</p>
+              <p>{exp.startDate} - {exp.endDate}</p>
             </article>
+          ))
         ) : (
-            <p>No experience details provided.</p>
+          <p>No experience details provided.</p>
         )}
+      </section>
     </section>
-   </section>
 );
 
 }

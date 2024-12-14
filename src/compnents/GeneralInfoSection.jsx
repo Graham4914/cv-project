@@ -2,23 +2,20 @@ import React, { useState } from "react";
 
 
 function GeneralInfoSection({generalInfo, setGeneralInfo}) {
-    const [isEditing, setIsEditing] = useState(true);
-   
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        setIsEditing(false);
-    };
+  
+    // const handleSubmit = (e) => {
+    //     e.preventDefault();
+    //     setIsEditing(false);
+    // };
 
 
-    const handleEdit = () => {
-        setIsEditing(true);
-    };
+    // const handleEdit = () => {
+    //     setIsEditing(true);
+    // };
 
     return (
         <section>
             <h2>Genral Information</h2>
-            {isEditing ? (
-            <form onSubmit={handleSubmit}>
                 <div>
                     <label htmlFor="name">Name:</label>
                     <input
@@ -49,16 +46,6 @@ function GeneralInfoSection({generalInfo, setGeneralInfo}) {
                          setGeneralInfo({ ...generalInfo, phone: e.target.value })}
                     />
                 </div>
-                <button type="submit">Submit</button>
-            </form>
-            ) : (
-                <div>
-                    <p><strong>Name:</strong> {name}</p>
-                    <p><strong>Email:</strong> {email}</p>
-                    <p><strong>Phone:</strong> {phone}</p>
-                    <button onClick={handleEdit}>Edit</button>
-                </div>
-            )}
         </section>
     );
 }

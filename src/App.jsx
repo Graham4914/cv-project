@@ -7,16 +7,18 @@ import './styles/layout.css'
 
 function App() {
   const [generalInfo, setGeneralInfo] =useState({ name: '', email: '', phone: '' });
-  const [education, setEducation] = useState({ schoolName: '', titleOfStudy: '', startDate: '', endDate: ''});
-  const [experience, setExperience] = useState({ companyName: '', positionTitle: '', responsibilities: '', startDate: '', endDate: ''});
+
+  const [educationList, setEducationList] = useState([]);
+
+  const [experienceList, setExperienceList] = useState([]);
 
   return (
     <main className='app-container'>
       <section className='editor-container'>
       <h1>CV Builder</h1>
      <GeneralInfoSection generalInfo={generalInfo} setGeneralInfo={setGeneralInfo} />
-     <EducationSection education={education} setEducation={setEducation} />
-     <ExperienceSection experience={experience} setExperience={setExperience} />
+     <EducationSection educationList={educationList} setEducationList={setEducationList} />
+     <ExperienceSection experienceList={experienceList} setExperienceList={setExperienceList} />
      </section>
 
      <section className='preview-container'>
@@ -24,8 +26,8 @@ function App() {
       <p>YourCV preview will appear here.</p>
       <CVPreview
       generalInfo={generalInfo}
-      education={education}
-      experience={experience}
+      education={educationList}
+      experience={experienceList}
       />
      </section>
     </main>
