@@ -1,12 +1,9 @@
 import React, { useState } from "react";
 
 
-function GeneralInfoSection() {
+function GeneralInfoSection({generalInfo, setGeneralInfo}) {
     const [isEditing, setIsEditing] = useState(true);
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [phone, setPhone] = useState('');
-
+   
     const handleSubmit = (e) => {
         e.preventDefault();
         setIsEditing(false);
@@ -27,8 +24,9 @@ function GeneralInfoSection() {
                     <input
                      type="text"
                      id="name"
-                     value={name}
-                     onChange={(e) => setName(e.target.value)}
+                     value={generalInfo.name}
+                     onChange={(e) =>
+                         setGeneralInfo({ ...generalInfo, name: e.target.value})}
                     />
                 </div>
                 <div>
@@ -36,8 +34,9 @@ function GeneralInfoSection() {
                     <input
                      type="email"
                      id="email"
-                     value={email}
-                     onChange={(e) => setEmail(e.target.value)}
+                     value={generalInfo.email}
+                     onChange={(e) =>
+                         setGeneralInfo({ ...generalInfo, email: e.target.value })}
                     />
                 </div>
                 <div>
@@ -45,8 +44,9 @@ function GeneralInfoSection() {
                     <input
                      type="tel"
                      id="phone"
-                     value={phone}
-                     onChange={(e) => setPhone(e.target.value)}
+                     value={generalInfo.phone}
+                     onChange={(e) =>
+                         setGeneralInfo({ ...generalInfo, phone: e.target.value })}
                     />
                 </div>
                 <button type="submit">Submit</button>
