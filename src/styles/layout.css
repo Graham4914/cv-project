@@ -1,11 +1,21 @@
+
+#root {
+  max-width: 2400px;
+  padding:0 2rem;
+}
+
+
+
 .app-container {
     display: flex;
     flex-direction: row;
     min-height: 100vh;
+    min-width: 100vw;
+    justify-content: space-between;
 }
 
 .editor-container {
-    flex: 0 0 60%;
+    flex:0 0 1;
     /* background: #f9f9f9; */
     padding: 1rem;
     box-sizing: border-box;
