@@ -26,8 +26,8 @@ function App() {
       <p>YourCV preview will appear here.</p>
       <CVPreview
       generalInfo={generalInfo}
-      education={educationList}
-      experience={experienceList}
+      educationList={educationList}
+      experienceList={experienceList}
       />
      </section>
     </main>

@@ -3,15 +3,6 @@ import React, { useState } from "react";
 
 function GeneralInfoSection({generalInfo, setGeneralInfo}) {
   
-    // const handleSubmit = (e) => {
-    //     e.preventDefault();
-    //     setIsEditing(false);
-    // };
-
-
-    // const handleEdit = () => {
-    //     setIsEditing(true);
-    // };
 
     return (
         <section>
