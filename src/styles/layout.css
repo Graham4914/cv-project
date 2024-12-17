@@ -27,3 +27,78 @@
     box-sizing: border-box;
     border-left: 1px solid #ccc;
 }
+
+.cv-preview {
+    background: var(--resume-background);
+    color: var(--resume-text);
+    max-width: 700px;
+    margin: 2rem auto;
+    padding: 2rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+    box-sizing: border-box;
+}
+
+/* Headings */
+
+.cv-preview h2 {
+    font-size: 2em;
+    margin-bottom: 0.5em;
+    color:var(--heading-text);
+}
+
+.cv-preview h3 {
+    font-size: 1.5em;
+    margin-top: 2em;
+    color: var(--heading-text);
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 0.25em;
+}
+
+.cv-preview h4 {
+    font-size: 1.2em;
+    margin-top: 1em;
+    margin-bottom: 0.2em;
+    color: var(--heading-text);
+}
+
+/* Text and spacing */
+.cv-preview p {
+    margin-bottom: 0.75em;
+    line-height: 1.6;
+}
+
+.cv-section {
+    margin-bottom: 2em;
+}
+
+.cv-section article {
+    margin-bottom: 1.5em;
+}
+@media print {
+  .editor-container {
+    display: none !important;
+  }
+
+  .app-container > *:not(.preview-container) {
+    display: none !important;
+  }
+
+  .preview-container > *:not(.cv-preview) {
+    display: none !important;
+  }
+  .cv-preview {
+    background: #ffffff !important;
+    color: #000000 !important;
+    box-shadow: none;
+    border-radius: 0;
+    margin: 0;
+    width: 100%;
+    max-width: none;
+    box-sizing: border-box;
+  }
+
+  @page {
+    size: A4;
+    margin:20mm;
+  }
+}

@@ -2,8 +2,8 @@ import React from "react";
 
 export default function CVPreview({generalInfo, educationList ,experienceList }) {
 return(
-   <section>
-    <article>
+   <section className="cv-preview">
+    <article className="cv-header">
         <header>
             <h2>{generalInfo.name}</h2>
         </header>
@@ -11,7 +11,7 @@ return(
         <p><strong>Phone:</strong> {generalInfo.phone}</p>
     </article>
 
-    <section>
+    <section className="cv-section">
         <h3>Education</h3>
         {educationList && educationList.length > 0 ? (
             educationList.map((edu, index) => (
@@ -26,7 +26,7 @@ return(
         )}
     </section>
 
-    <section>
+    <section className="cv-section">
         <h3>Experience</h3>
         {experienceList && experienceList.length > 0 ? (
           experienceList.map((exp, index) => (
