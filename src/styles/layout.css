@@ -97,8 +97,8 @@
     box-sizing: border-box;
   }
 
-  @page {
+  /* @page {
     size: A4;
     margin:20mm;
-  }
+  } */
 }

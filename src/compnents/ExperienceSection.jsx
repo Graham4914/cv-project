@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 function ExperienceSection({experienceList, setExperienceList}) {
+  const [isSectionOpen, setIsSectionOpen] = useState(false);
    const [isFormVisible, setIsFormVisible] = useState(false);
     const [editingIndex, setEditingIndex] = useState(null);
 
@@ -13,11 +14,17 @@ function ExperienceSection({experienceList, setExperienceList}) {
         endDate: ''
     });
 
+    const handleToggleSection = () => {
+      setIsSectionOpen(!isSectionOpen);
+    };
+  
 
     const handleAddClick = () => {
+      if (!isSectionOpen) {
+        setIsSectionOpen(true);
+      }
         setIsFormVisible(true);
         setEditingIndex(null);
-
         setFormData({ companyName: '', positionTitle: '', responsibilities: '', startDate: '', endDate: '' });
     };
 
@@ -45,6 +52,7 @@ function ExperienceSection({experienceList, setExperienceList}) {
         setEditingIndex(index);
         setFormData({ ...experienceList[index] });
         setIsFormVisible(true);
+        if (!isSectionOpen) setIsSelectionOpen(true);
     }
 
     const handleDelete = (index) => {
@@ -54,13 +62,22 @@ function ExperienceSection({experienceList, setExperienceList}) {
 
 
     return (
-        <section>
-          <h2>Experience</h2>
-          <button onClick={handleAddClick}>+ Experience</button>
-    
+        <section className="editor-section editor-experience">
+          <div className="editor-section-header">
+          <h2 className="editor-section-title">Experience</h2>
+          <div className="editor-section-controls">
+          <button type="button" onClick={handleToggleSection}>
+            {isSectionOpen ? "▲" : "▼"}
+            </button>
+            <button type="button" onClick={handleAddClick}>+ Add</button>
+        </div>
+      </div>
+
+          {isSectionOpen && (
+            <div className="editor-section-content">
           {isFormVisible && (
             <form onSubmit={handleSave}>
-              <div>
+              <div className="form-group">
                 <label htmlFor="companyName">Company Name:</label>
                 <input
                   type="text"
@@ -70,7 +87,7 @@ function ExperienceSection({experienceList, setExperienceList}) {
                 />
               </div>
     
-              <div>
+              <div className="form-group">
                 <label htmlFor="positionTitle">Position Title:</label>
                 <input
                   type="text"
@@ -80,7 +97,7 @@ function ExperienceSection({experienceList, setExperienceList}) {
                 />
               </div>
     
-              <div>
+              <div className="form-group">
                 <label htmlFor="responsibilities">Responsibilities:</label>
                 <textarea
                   id="responsibilities"
@@ -89,7 +106,7 @@ function ExperienceSection({experienceList, setExperienceList}) {
                 />
               </div>
     
-              <div>
+              <div className="form-group">
                 <label htmlFor="expStartDate">Start Date:</label>
                 <input
                   type="text"
@@ -100,7 +117,7 @@ function ExperienceSection({experienceList, setExperienceList}) {
                 />
               </div>
     
-              <div>
+              <div className="form-group">
                 <label htmlFor="expEndDate">End Date:</label>
                 <input
                   type="text"
@@ -117,10 +134,10 @@ function ExperienceSection({experienceList, setExperienceList}) {
           )}
     
           {experienceList.length > 0 && (
-            <div>
+            <div className="editor-entries-list">
               <h3>Saved Experience Entries</h3>
               {experienceList.map((exp, index) => (
-                <article key={index}>
+                <article key={index} className="editor-entry">
                   <h4>{exp.positionTitle} at {exp.companyName}</h4>
                   <p><strong>Responsibilities:</strong> {exp.responsibilities}</p>
                   <p>{exp.startDate} - {exp.endDate}</p>
@@ -129,6 +146,8 @@ function ExperienceSection({experienceList, setExperienceList}) {
                 </article>
               ))}
             </div>
+          )}
+          </div>
           )}
         </section>
       );

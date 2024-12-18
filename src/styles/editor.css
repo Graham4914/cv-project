@@ -1,0 +1,73 @@
+.editor-section {
+    border: 1px solid #444;
+    border-radius: 4px;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .editor-section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .editor-section-title {
+    margin: 0;
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+  
+  .editor-section-controls button {
+    margin-left: 0.5rem;
+  }
+  
+  .editor-section-content {
+    margin-top: 1rem;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+  }
+  
+  .form-group label {
+    margin-bottom: 0.25rem;
+    font-weight: 500;
+  }
+  
+  .form-group input, .form-group textarea {
+    padding: 0.4rem;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    background: #333;
+    color: #fff;
+    font-family: inherit;
+  }
+  
+  .editor-entries-list {
+    margin-top: 1rem;
+  }
+  
+  .editor-entry {
+    border-bottom: 1px solid #555;
+    padding: 0.5rem 0;
+  }
+  
+  .editor-entry h4 {
+    margin: 0;
+    font-size: 1.1em;
+    margin-bottom: 0.25rem;
+  }
+  
+  .editor-entry p {
+    margin: 0.25rem 0;
+  }
+  
+  .editor-entry button {
+    margin-right: 0.5rem;
+    background: #1a1a1a;
+    border: 1px solid #646cff;
+    color: #fff;
+  }
+  

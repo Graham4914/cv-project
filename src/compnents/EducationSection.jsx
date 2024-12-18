@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 function EducationSection({educationList, setEducationList }) {
+ const [isSectionOpen, setIsSectionOpen] = useState(false);
  const [isFormVisible, setIsFormVisible] = useState(false);
  const [editingIndex, setEditingIndex] = useState(null);
 
@@ -11,11 +12,17 @@ function EducationSection({educationList, setEducationList }) {
     endDate: ''
   });
 
+  const handleToggleSection = () => {
+    setIsSectionOpen(!isSectionOpen);
+  };
 
     const handleAddClick = () => {
+        if (!isSectionOpen) {
+            setIsSectionOpen(true);
+          }
+
         setIsFormVisible(true);
         setEditingIndex(null);
-
         setFormData({ schoolName: '', titleOfStudy: '', startDate: '', endDate: '' });
     };
 
@@ -41,24 +48,37 @@ function EducationSection({educationList, setEducationList }) {
         setEditingIndex(index);
         setFormData({ ...educationList[index] });
         setIsFormVisible(true);
-    }
+        if (!isSectionOpen) setIsSelectionOpen(true);
+    };
 
     const handleDelete = (index) => {
         const updatedList = educationList.filter((_, i) => i !== index);
         setEducationList(updatedList);
-    }
+    };
 
 
 
 
     return (
         
-        <section>
-            <h2>Education</h2>
-            <button onClick={handleAddClick}>+ Education</button>
+        <section className="editor-section editor-education">
+            <div className="editor-section-header">
+            <h2 className="editor-section-title">Education</h2>
+            <div className="editor-section-controls">
+            <button type="button" onClick={handleToggleSection}>
+            {isSectionOpen ? "▲" : "▼"}
+            </button>
+
+            <button type="button" onClick={handleAddClick}>+ Add</button>
+            </div>
+        </div>
+
+
+        {isSectionOpen && (
+            <div className="editor-section-content">
             {isFormVisible && (
                 <form onSubmit={handleSave}>
-                    <div>
+                    <div className="form-group">
                         <label htmlFor="schoolName">School Name:</label>
                         <input
                         type="text"
@@ -68,7 +88,8 @@ function EducationSection({educationList, setEducationList }) {
                         />
                     </div>
 
-                    <div>
+        
+                    <div className="form-group">
                         <label htmlFor="titleOfStudy">Title of Study:</label>
                         <input
                         type="text"
@@ -78,7 +99,7 @@ function EducationSection({educationList, setEducationList }) {
                         />
                     </div>
 
-                    <div>
+                    <div className="form-group">
                         <label htmlFor="startDate">Start Date:</label>
                         <input
                         type="text"
@@ -89,7 +110,7 @@ function EducationSection({educationList, setEducationList }) {
                         />
                     </div>
 
-                    <div>
+                    <div className="form-group">
                         <label htmlFor="endDate">End Date:</label>
                         <input
                         type="text"
@@ -106,10 +127,9 @@ function EducationSection({educationList, setEducationList }) {
             )}
         
              {educationList.length > 0 && (
-                <div>
-                    <h3>Saved Education Entries</h3>
+                <div className="editor-entries-list">
                     {educationList.map((edu, index) => (
-                        <article key={index}>
+                        <article key={index} className="editor-entry">
                             <h4>{edu.schoolName}</h4>
                             <p>{edu.titleOfStudy}</p>
                             <p>{edu.startDate} - {edu.endDate}</p>
@@ -119,6 +139,8 @@ function EducationSection({educationList, setEducationList }) {
                     ))}
                 </div>
              )}
+             </div>
+        )}
         </section>
     );
 }

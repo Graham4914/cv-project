@@ -5,9 +5,10 @@ function GeneralInfoSection({generalInfo, setGeneralInfo}) {
   
 
     return (
-        <section>
-            <h2>Genral Information</h2>
-                <div>
+        <section className="editor-section aditor-general-info">
+            <h2 className="editor-section-title">Genral Information</h2>
+
+                <div className="form-group">
                     <label htmlFor="name">Name:</label>
                     <input
                      type="text"
@@ -17,7 +18,8 @@ function GeneralInfoSection({generalInfo, setGeneralInfo}) {
                          setGeneralInfo({ ...generalInfo, name: e.target.value})}
                     />
                 </div>
-                <div>
+
+                <div className="form-group">
                     <label htmlFor="email">Email:</label>
                     <input
                      type="email"
@@ -27,7 +29,7 @@ function GeneralInfoSection({generalInfo, setGeneralInfo}) {
                          setGeneralInfo({ ...generalInfo, email: e.target.value })}
                     />
                 </div>
-                <div>
+                <div className="form-group">
                     <label htmlFor="phone">Phone:</label>
                     <input
                      type="tel"
