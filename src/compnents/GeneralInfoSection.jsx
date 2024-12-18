@@ -6,7 +6,7 @@ function GeneralInfoSection({generalInfo, setGeneralInfo}) {
 
     return (
         <section className="editor-section aditor-general-info">
-            <h2 className="editor-section-title">Genral Information</h2>
+            <h2 className="editor-section-title">Personal Information</h2>
 
                 <div className="form-group">
                     <label htmlFor="name">Name:</label>

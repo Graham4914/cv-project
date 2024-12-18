@@ -120,9 +120,10 @@ function EducationSection({educationList, setEducationList }) {
                         onChange={(e) => setFormData({ ...formData, endDate: e.target.value})}
                         />
                     </div>
-
+                    <div className="editor-entry-button save-cancel-controls">
                     <button type="submit">Save</button>
                     <button type="button" onClick={handleCancel}>Cancel</button>
+                    </div>
                 </form>
             )}
         

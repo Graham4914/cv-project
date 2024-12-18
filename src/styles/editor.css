@@ -71,3 +71,13 @@
     color: #fff;
   }
   
+  .save-cancel-controls {
+    display: flex;
+  }
+
+  .save-cancel-controls button {
+   
+    margin-right: 0.5rem;
+    background: #1a1a1a;
+    color: #fff;
+  }

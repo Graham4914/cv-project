@@ -3,8 +3,9 @@ import GeneralInfoSection from './compnents/GeneralInfoSection';
 import EducationSection from './compnents/EducationSection';
 import ExperienceSection from './compnents/ExperienceSection';
 import CVPreview from './compnents/CVPreview';
-import './styles/layout.css'
-import './styles/editor.css'
+import './styles/layout.css';
+import './styles/editor.css';
+
 
 function App() {
   const [generalInfo, setGeneralInfo] =useState({ name: '', email: '', phone: '' });
