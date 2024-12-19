@@ -25,7 +25,7 @@ function App() {
 
      <section className='preview-container'>
       {/* <h1 className='preview-heading'>CV Preview</h1> */}
-      <p>YourCV preview will appear here.</p>
+      <p>Your CV preview will appear here.</p>
       <CVPreview
       generalInfo={generalInfo}
       educationList={educationList}

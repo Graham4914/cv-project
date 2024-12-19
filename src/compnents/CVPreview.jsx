@@ -1,32 +1,33 @@
 import React from "react";
 
-export default function CVPreview({generalInfo, educationList ,experienceList }) {
-return(
-   <section className="cv-preview">
-    <article className="cv-header">
-        <header>
-            <h2>{generalInfo.name}</h2>
-        </header>
-        <p><strong>Email:</strong> {generalInfo.email}</p> 
-        <p><strong>Phone:</strong> {generalInfo.phone}</p>
-    </article>
+export default function CVPreview({ generalInfo, educationList, experienceList }) {
+  return (
+    <article className="cv-preview">
+      <header className="cv-header">
+        <h1 className="cv-name">{generalInfo.name}</h1>
+        <p className="cv-contact">
+          <span className="cv-email">{generalInfo.email}</span>
+          <span className="separator">|</span>
+          <span className="cv-phone">{generalInfo.phone}</span>
+        </p>
+      </header>
 
-    <section className="cv-section">
+      <section className="cv-section">
         <h3>Education</h3>
         {educationList && educationList.length > 0 ? (
-            educationList.map((edu, index) => (
+          educationList.map((edu, index) => (
             <article key={index}>
-                <h4>{edu.schoolName}</h4>
-                <p>{edu.titleOfStudy}</p>
-                <p>{edu.startDate} - {edu.endDate}</p>
+              <h4>{edu.schoolName}</h4>
+              <p>{edu.titleOfStudy}</p>
+              <p>{edu.startDate} - {edu.endDate}</p>
             </article>
-            ))
+          ))
         ) : (
-            <p>No Education Details Provided.</p>
+          <p>No Education Details Provided.</p>
         )}
-    </section>
+      </section>
 
-    <section className="cv-section">
+      <section className="cv-section">
         <h3>Experience</h3>
         {experienceList && experienceList.length > 0 ? (
           experienceList.map((exp, index) => (
@@ -40,7 +41,6 @@ return(
           <p>No experience details provided.</p>
         )}
       </section>
-    </section>
-);
-
+    </article>
+  );
 }

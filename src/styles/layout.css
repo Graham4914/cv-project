@@ -25,7 +25,7 @@
 
 .preview-container {
     flex: 1;
-    padding: 1.2rem;
+    padding: 0 1.2rem 0 6rem;
     box-sizing: border-box;
     border-left: 1px solid #ccc;
     display: flex;
@@ -33,7 +33,7 @@
     justify-content: flex-start;
     align-items: center;
     overflow: auto;
-    margin: 0 .05em;
+    margin: 0 .5em;
 }
 
 
@@ -54,6 +54,49 @@
     box-sizing: border-box;
 }
 
+.cv-header {
+  text-align: left;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 1rem;
+}
+
+.cv-name {
+  margin: 0;
+  font-size: 2.4em;
+  font-weight: 600;
+  color: var(--accent-color); /* if you want the name in accent color */
+}
+
+.cv-contact {
+  margin: 0.5rem 0 0;
+  font-size: 1em;
+  color: #555;
+  display: flex;
+  align-items: center;
+}
+
+.cv-contact .separator {
+  margin: 0 0.5rem;
+  color: #888;
+}
+
+.cv-section h3 {
+  font-weight: 600;
+  color: var(--heading-text);
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 0.25em;
+  margin-top: 2em;
+}
+
+.cv-section article {
+  margin-bottom: 1.5em;
+}
+
+.cv-section h4 {
+  margin-bottom: 0.5em;
+  color: var(--heading-text);
+}
 /* Headings */
 
 .cv-preview h2 {
