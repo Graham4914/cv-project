@@ -39,6 +39,17 @@ function GeneralInfoSection({generalInfo, setGeneralInfo}) {
                          setGeneralInfo({ ...generalInfo, phone: e.target.value })}
                     />
                 </div>
+
+                <div className="form-group">
+                    <label htmlFor="location">Location:</label>
+                    <input
+                     type="text"
+                     id="location"
+                     value={generalInfo.location}
+                     onChange={(e) =>
+                         setGeneralInfo({ ...generalInfo, location: e.target.value})}
+                    />
+                </div>
         </section>
     );
 }

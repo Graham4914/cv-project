@@ -9,9 +9,11 @@ export default function CVPreview({ generalInfo, educationList, experienceList }
           <span className="cv-email">{generalInfo.email}</span>
           <span className="separator">|</span>
           <span className="cv-phone">{generalInfo.phone}</span>
+          <span className="separator">|</span>
+          <span className="cv-loction">{generalInfo.location}</span>
         </p>
       </header>
-
+      <div className="cv-content">
       <section className="cv-section">
         <h3>Education</h3>
         {educationList && educationList.length > 0 ? (
@@ -41,6 +43,7 @@ export default function CVPreview({ generalInfo, educationList, experienceList }
           <p>No experience details provided.</p>
         )}
       </section>
+      </div>
     </article>
   );
 }

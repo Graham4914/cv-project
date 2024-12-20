@@ -8,7 +8,7 @@ import './styles/editor.css';
 
 
 function App() {
-  const [generalInfo, setGeneralInfo] =useState({ name: '', email: '', phone: '' });
+  const [generalInfo, setGeneralInfo] =useState({ name: '', email: '', phone: '', location: '' });
 
   const [educationList, setEducationList] = useState([]);
 
