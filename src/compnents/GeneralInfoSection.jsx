@@ -2,12 +2,24 @@ import React, { useState } from "react";
 
 
 function GeneralInfoSection({generalInfo, setGeneralInfo}) {
-  
+  const [isSectionOpen, setIsSectionOpen] = useState(true);
+
+  const handleToggleSection = () => {
+    setIsSectionOpen(!isSectionOpen);
+  };
 
     return (
         <section className="editor-section aditor-general-info">
+            <div className="editor-section-header">
             <h2 className="editor-section-title">Personal Information</h2>
+            <button type="button" onClick={handleToggleSection}>
+            {isSectionOpen ? "▲" : "▼"}
+            </button>
+            </div>
 
+            {isSectionOpen && (
+                <div className="editor-section-content">
+                
                 <div className="form-group">
                     <label htmlFor="name">Name:</label>
                     <input
@@ -29,6 +41,7 @@ function GeneralInfoSection({generalInfo, setGeneralInfo}) {
                          setGeneralInfo({ ...generalInfo, email: e.target.value })}
                     />
                 </div>
+
                 <div className="form-group">
                     <label htmlFor="phone">Phone:</label>
                     <input
@@ -50,6 +63,8 @@ function GeneralInfoSection({generalInfo, setGeneralInfo}) {
                          setGeneralInfo({ ...generalInfo, location: e.target.value})}
                     />
                 </div>
+             </div>
+            )}
         </section>
     );
 }

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import GeneralInfoSection from './compnents/GeneralInfoSection';
 import EducationSection from './compnents/EducationSection';
 import ExperienceSection from './compnents/ExperienceSection';
@@ -8,11 +8,34 @@ import './styles/editor.css';
 
 
 function App() {
-  const [generalInfo, setGeneralInfo] =useState({ name: '', email: '', phone: '', location: '' });
+  const storedGeneralInfo =
+  JSON.parse(localStorage.getItem("generalInfo")) || {
+    name: "",
+    email: "",
+    phone: "",
+    location: "",
+  };
 
-  const [educationList, setEducationList] = useState([]);
+  const [generalInfo, setGeneralInfo] =useState(storedGeneralInfo);
 
-  const [experienceList, setExperienceList] = useState([]);
+  const storedEducation = JSON.parse(localStorage.getItem("educationList")) || [];
+  const [educationList, setEducationList] = useState(storedEducation);
+
+  const storedExperience = JSON.parse(localStorage.getItem("experienceList")) || [];
+  const [experienceList, setExperienceList] = useState(storedExperience);
+
+useEffect(() => {
+  localStorage.setItem("generalInfo", JSON.stringify(generalInfo));
+},[generalInfo]);
+
+useEffect(() => {
+  localStorage.setItem("educationList", JSON.stringify(educationList));
+}, [educationList]);
+
+useEffect(() => {
+  localStorage.setItem("experienceList", JSON.stringify(experienceList));
+}, [experienceList]);
+
 
   return (
     <main className='app-container'>
