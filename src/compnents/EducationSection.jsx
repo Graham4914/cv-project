@@ -65,7 +65,11 @@ function EducationSection({educationList, setEducationList }) {
             <div className="editor-section-header">
             <h2 className="editor-section-title">Education</h2>
             <div className="editor-section-controls">
-            <button type="button" onClick={handleToggleSection}>
+            <button type="button" onClick={handleToggleSection}
+            aria-label="Toggle Education section"
+            aria-expanded={isSectionOpen}
+            aria-controls="education-content"
+            >
             {isSectionOpen ? "▲" : "▼"}
             </button>
 
@@ -75,7 +79,10 @@ function EducationSection({educationList, setEducationList }) {
 
 
         {isSectionOpen && (
-            <div className="editor-section-content">
+            <div className="editor-section-content"
+            id="education-content"
+            aria-label="Education Entries"
+            >
             {isFormVisible && (
                 <form onSubmit={handleSave}>
                     <div className="form-group">

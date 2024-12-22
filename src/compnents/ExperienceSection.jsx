@@ -57,7 +57,7 @@ function ExperienceSection({experienceList, setExperienceList}) {
 
     const handleDelete = (index) => {
         const updatedList = experienceList.filter((_, i) => i !== index);
-        experienceList(updatedList);
+        setExperienceList(updatedList);
     }
 
 
@@ -66,7 +66,11 @@ function ExperienceSection({experienceList, setExperienceList}) {
           <div className="editor-section-header">
           <h2 className="editor-section-title">Experience</h2>
           <div className="editor-section-controls">
-          <button type="button" onClick={handleToggleSection}>
+          <button type="button" onClick={handleToggleSection}
+            aria-label="Toggle Experience section"
+            aria-expanded={isSectionOpen}
+            aria-controls="experience-content"
+          >
             {isSectionOpen ? "▲" : "▼"}
             </button>
             <button type="button" onClick={handleAddClick}>+ Add</button>
@@ -74,7 +78,10 @@ function ExperienceSection({experienceList, setExperienceList}) {
       </div>
 
           {isSectionOpen && (
-            <div className="editor-section-content">
+            <div className="editor-section-content"
+            id="experience-content"
+            aria-label="Experience Entries"
+            >
           {isFormVisible && (
             <form onSubmit={handleSave}>
               <div className="form-group">
