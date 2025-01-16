@@ -15,11 +15,11 @@ export default function CVPreview({ generalInfo, educationList, experienceList }
       </header>
       <div className="cv-content">
       <section className="cv-section">
-        <h3>Education</h3>
+        <h2>Education</h2>
         {educationList && educationList.length > 0 ? (
           educationList.map((edu, index) => (
             <article key={index}>
-              <h4>{edu.schoolName}</h4>
+              <h3>{edu.schoolName}</h3>
               <p>{edu.titleOfStudy}</p>
               <p>{edu.startDate} - {edu.endDate}</p>
             </article>
@@ -30,11 +30,11 @@ export default function CVPreview({ generalInfo, educationList, experienceList }
       </section>
 
       <section className="cv-section">
-        <h3>Experience</h3>
+        <h2>Experience</h2>
         {experienceList && experienceList.length > 0 ? (
           experienceList.map((exp, index) => (
             <article key={index}>
-              <h4>{exp.positionTitle} at {exp.companyName}</h4>
+              <h3>{exp.positionTitle} at {exp.companyName}</h3>
               <p>{exp.responsibilities}</p>
               <p>{exp.startDate} - {exp.endDate}</p>
             </article>
